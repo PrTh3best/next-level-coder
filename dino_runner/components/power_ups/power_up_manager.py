@@ -16,11 +16,17 @@ class PowerUpManager:
         self.points = points
 
         if len(self.power_ups) == 0:
-            if self.when_appears == self.points:
-                print("generating power up")
-                self.when_appears = random.randint(self.when_appears + 200, 500 + self.when_appears)
-                self.power_ups.append(Shield())
-
+            type = random.randint(0, 1)
+            if type == 0: 
+                if self.when_appears == self.points:
+                    print("generating power up")
+                    self.when_appears = random.randint(self.when_appears + 200, 500 + self.when_appears)
+                    self.power_ups.append(Shield())
+            if type == 1:
+                if self.when_appears == self.points:
+                    print("generating power up")
+                    self.when_appears = random.randint(self.when_appears + 200, 500 + self.when_appears)
+                    self.power_ups.append(Hammer())
 
     def update(self, points, game_speed, player):
         self.generate_power_ups(points)
@@ -38,12 +44,12 @@ class PowerUpManager:
                 self.power_ups.remove(power_up)
                 
             elif player.dino_rect.colliderect(power_up.rect):
-                player.hammer = True
+                player.Hammer = True
                 player.type = power_up.type
 
                 start_time = pygame.time.get_ticks()
                 time_random = random.randrange(5, 8)
-                player.hammer_time_up = start_time + (time_random * 1000)
+                player.Hammer_time_up = start_time + (time_random * 1000)
 
                 self.power_ups.remove(power_up)
 

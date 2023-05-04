@@ -81,6 +81,8 @@ class Game:
             self.screen.blit(BG, (image_width + self.x_pos_bg, self.y_pos_bg))
             self.x_pos_bg = 0
         self.x_pos_bg -= self.game_speed
+    #    else not show(game_over)
+    
 
     def draw_score(self):
         font = pygame.font.Font(FONT_ARIAL, 30)
@@ -89,3 +91,9 @@ class Game:
         rect.x = 1000
         rect.y = 10
         self.screen.blit(surface, rect)
+
+  #  def reset_game(self):
+   #     self.obstacle_manager.reset_obstacles()
+    #    self.score = 0
+     #   self.game_speed = 20
+      #  self.power_ups_manager.reset_power_ups()
