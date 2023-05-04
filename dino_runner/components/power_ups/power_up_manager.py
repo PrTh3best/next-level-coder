@@ -2,6 +2,7 @@ import random
 import pygame
 
 from dino_runner.components.power_ups.shield import Shield
+from dino_runner.components.power_ups.hammer import Hammer
 
 class PowerUpManager:
 
@@ -35,6 +36,16 @@ class PowerUpManager:
                 player.shield_time_up = start_time + (time_random * 1000)
 
                 self.power_ups.remove(power_up)
+                
+            elif player.dino_rect.colliderect(power_up.rect):
+                player.hammer = True
+                player.type = power_up.type
+
+                start_time = pygame.time.get_ticks()
+                time_random = random.randrange(5, 8)
+                player.hammer_time_up = start_time + (time_random * 1000)
+
+                self.power_ups.remove(power_up)
 
 
 
@@ -43,6 +54,3 @@ class PowerUpManager:
         for power_up in self.power_ups:
             power_up.draw(screen)
 
-    def hammer(self, screen):
-        for power_up in self.power_ups:
-            power_up.hammer(screen) 

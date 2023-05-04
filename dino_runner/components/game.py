@@ -13,6 +13,7 @@ from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
 from dino_runner.components.power_ups.power_up_manager import PowerUpManager
 from dino_runner.components.player_hearts.heart_manager import HeartManager
 
+
 class Game:
     def __init__(self):
         pygame.init()
@@ -71,7 +72,7 @@ class Game:
         self.heart_manager.draw(self.screen)
         pygame.display.update()
         pygame.display.flip()
-
+ 
     def draw_background(self):
         image_width = BG.get_width()
         self.screen.blit(BG, (self.x_pos_bg, self.y_pos_bg))
