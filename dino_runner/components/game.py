@@ -64,6 +64,8 @@ class Game:
     def draw(self):
         self.clock.tick(FPS)
         self.screen.fill((255, 255, 255)) #RGB
+        if self.points % 100 == 500:
+            self.screen.fill((255, 0, 0))
         self.draw_background()
         self.player.draw(self.screen)
         self.obstacle_manager.draw(self.screen)
@@ -91,6 +93,7 @@ class Game:
         rect.x = 1000
         rect.y = 10
         self.screen.blit(surface, rect)
+        print("score")
 
   #  def reset_game(self):
    #     self.obstacle_manager.reset_obstacles()

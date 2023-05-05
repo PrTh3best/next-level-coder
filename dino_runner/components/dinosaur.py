@@ -2,6 +2,7 @@ import pygame
 from pygame.sprite import Sprite
 from dino_runner.utils.constants import (
     HAMMER_TYPE,
+    PYZZA_TYPE,
     RUNNING, 
     DUCKING, 
     JUMPING,
